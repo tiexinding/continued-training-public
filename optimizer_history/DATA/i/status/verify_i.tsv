@@ -1,0 +1,9 @@
+MG_vfac_s17	57f391d583e3a799	sha16:57f391d583e3a799	57f391d583e3a799	1
+MG_vperm_s17	fe9a49b28d2721f4	sha16:fe9a49b28d2721f4	fe9a49b28d2721f4	1
+MG_vt_s17	256bf49c319af3f5	log:/root/autodl-tmp/fork/runs_b2/Kv/log.jsonl	EQ	1
+GM_vfac_s17	b72414556ec8f697	sha16:b72414556ec8f697	b72414556ec8f697	1
+GM_vperm_s17	74e8e8e17da2c81f	log:/root/autodl-tmp/fork/runs_e/R_vperm_med/log.jsonl	EQ	1
+GM_vt_s17	3ce0b9e9ebd779f2	log:/root/autodl-tmp/fork/runs_d/R_vt/log.jsonl	EQ	1
+PG_vt_s17	b20283ded2934fc1	sha16:b20283ded2934fc1	b20283ded2934fc1	1
+PG_vfac_s17	34403798a36fb149	log:/root/autodl-tmp/fork/runs_e/E_vfac/log.jsonl	EQ	1
+PG_vperm_s17	cb773731be330877	snap:/root/autodl-tmp/fork/runs_e/E_vperm/snaps/step0125/weights.pt	cb773731be330877	1

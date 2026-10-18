@@ -1,0 +1,74 @@
+{
+ "tied": true,
+ "token_totals": {
+  "bio": 261935,
+  "gsm8k": 181908,
+  "code": 30863
+ },
+ "group_sizes": {
+  "vocab_indent": 105,
+  "vocab_code_only": 487,
+  "vocab_both_used": 2441,
+  "vocab_unused": 135173
+ },
+ "v_relative": {
+  "ffn_code_only": {
+   "gate_row": 0.4905259609222412,
+   "down_col": 0.8513860106468201
+  },
+  "ffn_both_used": {
+   "gate_row": 1.8599472045898438,
+   "down_col": 1.7597947716712952
+  },
+  "ffn_low_all": {
+   "gate_row": 0.8271847665309906,
+   "down_col": 0.5231879353523254
+  },
+  "vocab_indent": {
+   "rel_median": 0.23315149545669556,
+   "frac_zero_rows": 0.9714285731315613,
+   "n": 105
+  },
+  "vocab_code_only": {
+   "rel_median": 26.351774215698242,
+   "frac_zero_rows": 0.5482546091079712,
+   "n": 487
+  },
+  "vocab_both_used": {
+   "rel_median": 135628144.0,
+   "frac_zero_rows": 0.0,
+   "n": 2441
+  },
+  "vocab_unused": {
+   "rel_median": 0.5537312030792236,
+   "frac_zero_rows": 0.8008626103401184,
+   "n": 135173
+  }
+ },
+ "rms_corr": {
+  "code_bio": 0.37287821777568647,
+  "code_gsm": 0.3989780749750491
+ },
+ "indent_tokens": [
+  "\t",
+  "  ",
+  "    ",
+  "        ",
+  "   ",
+  "       ",
+  "\t\t",
+  "           ",
+  "                ",
+  "               ",
+  "     ",
+  "\t\t\t\t",
+  "                   ",
+  "\t\t\t",
+  "                       ",
+  "         ",
+  "                                ",
+  "      ",
+  "                           ",
+  "             "
+ ]
+}

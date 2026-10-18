@@ -1,0 +1,1 @@
+{"n_examples": 1000, "n_indent_ids": 105, "supervised_tokens": 124821, "indent_occurrences": 1, "examples_with_indent": 1, "data": "prepared_subsets/gsm8k/train.jsonl (seed 17)", "tokenization": "forklib.tokenize_train_manual, max_len 512"}

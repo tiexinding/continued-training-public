@@ -1,0 +1,115 @@
+# How AdamW's Second-Moment History Shapes Update Allocation After a Task Switch
+
+Companion data and code for the paper:
+
+> **How AdamW's Second-Moment History Shapes Update Allocation After a Task Switch**
+> Tiexin Ding. arXiv identifier to be added.
+
+The experiments fine-tune Qwen2.5-0.5B-Instruct in two stages (three task switches: MBPP→GSM8K, GSM8K→MBPP,
+PubMed→GSM8K) and vary only how the AdamW state is treated at the switch. All runs are full-parameter fine-tuning;
+LoRA was not tested.
+
+## What is released
+
+Every figure, table and quoted number traces through three layers:
+training runs and checkpoints (on the GPU card) → read-outs (extraction scripts) → figures, tables and statistics
+(local scripts).
+
+- **Read-outs** behind every figure, table and quoted number (`DATA/`, the same relative layout as the working
+  directory, so the scripts' paths are unchanged).
+- **Local scripts** (`FS/`) that turn read-outs into the figures, tables and summary read-outs, including nine
+  aggregation steps that were first run as one-off commands and are released as recovered from the session record
+  (`FS/regen/`, see `DATA_PROVENANCE.md` §5).
+- **Extraction scripts** that ran on the GPU card and read starting states, endpoint weights or training records
+  (`scripts/`), with the recorded run queues (`scripts/run_records/`).
+- **Training code and data construction** (`train/`): the trainer, the optimizer with explicit moment and step-counter
+  operations, one setup record per run, and the IDs and SHA-256 of every training and probe subset.
+- **Figures** as they appear in the paper (`FIG/`). File names keep their working names; the paper numbers are:
+  Fig. 1 `fig0_mechanism`, Fig. 2 `fig2_core_allocation`, Fig. 3 `fig3_allocation_dynamics`, Fig. 4
+  `fig4_cross_condition`, Fig. 5 `fig3_one_step_counterfactual`, Fig. 6 `fig_preserve`, Fig. 7
+  `fig5_functional_boundary`, Fig. 8 `fig6_format_mechanism`.
+
+Not released: model checkpoints and AdamW states (each starting state is about 6 GB, each endpoint snapshot about
+2 GB, several dozen in total). The extraction scripts in `scripts/` therefore cannot be re-run from this directory;
+they are included so the exact read-out definitions can be inspected. Also not released: the training and probe
+subsets themselves, because the code that builds them (Ren et al., `learning-dynamics-cl`, commit `b4962cc`) carries no
+license; `train/data/` gives their IDs, statistics and SHA-256 and the command that rebuilds them.
+
+```
+optimizer_history/
+├── DATA/                 read-outs (tier A, ~105 MB); DATA/TIER_B_sha256.json lists the tier-B arrays
+├── FS/                   local figure, table and summary scripts; FS/regen/ recovered one-off aggregation steps
+├── scripts/              GPU-card extraction scripts; scripts/run_records/ the recorded run queues
+├── train/                trainer, optimizer, data construction, run_configs/, data/ (README in train/)
+├── FIG/                  the paper's figures (PDF and PNG)
+├── reproduce.py          rebuilds every figure, table and summary read-out and checks them against DATA/ and FIG/
+├── DATA_PROVENANCE.md    map from every figure, table and quoted number to its read-out, script and raw source
+└── MANIFEST.txt          MD5 and size of every released file
+```
+
+## Reproducing figures, tables and numbers
+
+```sh
+python reproduce.py
+```
+
+This copies the package to a temporary directory, runs every local step there and compares each output with the
+released copy (JSON by value, Markdown and LaTeX byte for byte, PDF byte for byte after removing the creation date).
+On the author's machine all 21 tier-A steps reproduce exactly, including the eight figures. Requirements: Python 3.10+,
+numpy, scipy, matplotlib, pandas with pyarrow (tested with numpy 2.4, scipy 1.17, matplotlib 3.10, pandas 3.0).
+
+`python reproduce.py --tier_b` adds eight steps that start from per-neuron change arrays and per-step training records
+(tier B, about 0.9 GB). Tier B is not released; names, sizes and SHA-256 are in `DATA/TIER_B_sha256.json`, and the
+eight read-outs computed from it are released in tier A. On the author's machine, with tier B in place, all 29 steps
+reproduce; one step (channel agreement) differs from the stored copy by at most 1.3e-6 relative, from library
+differences between the GPU card and the local machine.
+
+`FS/derived_numbers.py` and `FS/predictors_mg.py` recompute the numbers that the paper derives from read-outs or
+states analytically (retention ratios, bias-correction factors, overlap reductions, precision checks of the output
+audit) and assert each against its printed value.
+
+## Condition codes
+
+The state treatment of every run is recorded in `train/run_configs/setup_records.json` under `args`: `m_op` (first
+moment), `v_op` (second moment) and `t_reset` (step counter); stage-A starts have `switch: fresh`. Run directories
+abbreviate the treatment, with a prefix for the switch or experiment round (`MG`, `GM`, `PG` in the repeat study) and
+`_s31`/`_s47` for data orders 31 and 47 (no suffix: order 17).
+
+| paper name | `m_op` | `v_op` | `t_reset` | directory token |
+|---|---|---|---|---|
+| keep v,t | `zero` | `keep` | false | `vt` (also `Kv`, `E_vt`) |
+| log-RC v | `zero` | `ladder:rowcol` + calibration suffix | false | `vfac` |
+| permuted v | `zero` | `ladder:cperm` + calibration suffix | false | `vperm` |
+| reset all | `zero` | `reset` | true | `0` |
+| keep m,v,t | `scale:1` | `keep` | false | `mvt_rec` |
+| keep t | `zero` | `reset` | false | `bridge` |
+| reset-t variants | `zero` | as above | true | `v`, `vfac_t0`, `vperm_t0` |
+
+Calibration suffix of `v_op`: none = uncalibrated, `:matched` = RMS calibration, `:matched_med` = median calibration.
+`DATA_PROVENANCE.md` maps each figure, table and number to the runs behind it.
+
+## Re-run checks
+
+These checks concern the GPU-side runs, which `reproduce.py` does not cover. A re-run that reproduces weight hashes
+is a stronger check than one that reproduces probe values only.
+
+- Applied-step re-runs (order 17; keep v,t and the two median-calibrated replacements on each of the three switches,
+  nine runs): five reproduce the final-weight SHA-256; the other four give identical values in the final probe
+  evaluation, which is consistent with, but not proof of, identical parameters.
+- Explicit order path: supplying order 17 as an explicit list reproduces the original PubMed→GSM8K keep v,t run bit
+  for bit.
+- Calibration coefficients: recomputed from the saved starts with the training code, they reproduce the logged values
+  exactly for all eight calibrated conditions.
+- Pair analysis: a bitwise re-run of one earlier pair analysis reproduces all 22,696 recorded scalars.
+
+## Scope of the checks
+
+`reproduce.py` checks the path from read-outs to the paper. It does not check that the GPU-side extraction produced
+those read-outs; for that, see the re-run checks above (endpoint SHA-256 or probe evaluations equal to the original
+runs), and `DATA/i/status/verify_i.tsv` and `DATA/*/runs_*/*/endpoint_sha16.txt` hold the
+recorded hashes. `DATA_PROVENANCE.md` §6 lists what remains only on the card.
+
+## License
+
+Code: see the repository license. Data derived from public benchmarks keeps the benchmark's terms: GSM8K (MIT),
+HumanEval (MIT; `DATA/h/humaneval.parquet` is the unmodified problem file), MBPP (CC BY 4.0), Dolly (CC BY-SA 3.0).

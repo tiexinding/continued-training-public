@@ -1,0 +1,77 @@
+{
+  "requested_probe_size": 100,
+  "requested_train_size": 1000,
+  "seed": 17,
+  "tasks": {
+    "dolly_qa": {
+      "probe_path": "data/prepared_subsets/dolly_qa/probe.jsonl",
+      "selected_ids_path": "data/prepared_subsets/dolly_qa/selected_ids.json",
+      "source_count": 1773,
+      "stats": {
+        "probe": {
+          "avg_assistant_tokens": 33.51,
+          "avg_prompt_tokens": 286.72,
+          "count": 100,
+          "max_assistant_tokens": 197,
+          "max_prompt_tokens": 4056
+        },
+        "train": {
+          "avg_assistant_tokens": 41.303,
+          "avg_prompt_tokens": 257.963,
+          "count": 1000,
+          "max_assistant_tokens": 690,
+          "max_prompt_tokens": 4143
+        }
+      },
+      "stats_path": "data/prepared_subsets/dolly_qa/stats.json",
+      "train_path": "data/prepared_subsets/dolly_qa/train.jsonl"
+    },
+    "gsm8k": {
+      "probe_path": "data/prepared_subsets/gsm8k/probe.jsonl",
+      "selected_ids_path": "data/prepared_subsets/gsm8k/selected_ids.json",
+      "source_count": 7473,
+      "stats": {
+        "probe": {
+          "avg_assistant_tokens": 119.8,
+          "avg_prompt_tokens": 57.37,
+          "count": 100,
+          "max_assistant_tokens": 453,
+          "max_prompt_tokens": 113
+        },
+        "train": {
+          "avg_assistant_tokens": 121.821,
+          "avg_prompt_tokens": 60.161,
+          "count": 1000,
+          "max_assistant_tokens": 361,
+          "max_prompt_tokens": 178
+        }
+      },
+      "stats_path": "data/prepared_subsets/gsm8k/stats.json",
+      "train_path": "data/prepared_subsets/gsm8k/train.jsonl"
+    },
+    "mbpp": {
+      "probe_path": "data/prepared_subsets/mbpp/probe.jsonl",
+      "selected_ids_path": "data/prepared_subsets/mbpp/selected_ids.json",
+      "source_count": 974,
+      "stats": {
+        "probe": {
+          "avg_assistant_tokens": 56.29,
+          "avg_prompt_tokens": 106.63,
+          "count": 100,
+          "max_assistant_tokens": 215,
+          "max_prompt_tokens": 303
+        },
+        "train": {
+          "avg_assistant_tokens": 58.0629290617849,
+          "avg_prompt_tokens": 111.0903890160183,
+          "count": 874,
+          "max_assistant_tokens": 432,
+          "max_prompt_tokens": 3695
+        }
+      },
+      "stats_path": "data/prepared_subsets/mbpp/stats.json",
+      "train_path": "data/prepared_subsets/mbpp/train.jsonl"
+    }
+  },
+  "tokenizer_name": "Qwen/Qwen2.5-0.5B-Instruct"
+}

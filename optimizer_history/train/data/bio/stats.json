@@ -1,0 +1,18 @@
+{
+  "probe": {
+    "avg_assistant_tokens": 201.21,
+    "avg_prompt_tokens": 36.02,
+    "count": 100,
+    "max_assistant_tokens": 652,
+    "max_prompt_tokens": 81,
+    "min_assistant_tokens": 47
+  },
+  "train": {
+    "avg_assistant_tokens": 226.258,
+    "avg_prompt_tokens": 35.704,
+    "count": 1000,
+    "max_assistant_tokens": 763,
+    "max_prompt_tokens": 90,
+    "min_assistant_tokens": 41
+  }
+}

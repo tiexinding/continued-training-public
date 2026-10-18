@@ -1,0 +1,22 @@
+d00155df3bd1693b  fork/runs3/lr2e-5/A/state/weights.pt
+e57b96b9c74a6271  fork/runs3/lr2e-5/B/state/weights.pt
+467028534f19402f  fork/runs3/lr2e-5/C/state/weights.pt
+d5cd7dcc00fb3d46  fork/runs3/lr5e-5/A/state/weights.pt
+cef88bcc89c2cc35  fork/runs3/lr5e-5/B/state/weights.pt
+a1d987b7147b473d  fork/runs3/lr5e-5/C/state/weights.pt
+3888fe629f46f74e  fork/runs_p1/lr1e-5/A/state/weights.pt
+fc13e9da95cc3dbb  fork/runs_p1/lr2e-5/A/state/weights.pt
+938cdf4e74780d43  fork/runs_p1/lr5e-6/A/state/weights.pt
+5d9825b68551462d  fork/runs_t1/lr1e-5/M/state/weights.pt
+c9b2d0e626954b19  fork/runs_t1/lr2e-5/M/state/weights.pt
+b4809ff48732e9cf  s2v2/run/s2fmt_K_owt_s0_final.pt
+576a3725555ddbde  s2v2/run/s2fmt_L_owt_s0_final.pt
+a45a67275c75fc07  s2v2/run/s2fmt_O_owt_s0_final.pt
+49611ad600217e56  s2v2/run/s2fmt_R_owt_s0_final.pt
+97df0c12a09ac63f  fork/runs_t2/lr1e-5/G/state/weights.pt
+6d86dfaaf4c7e71c  fork/runs_t2/lr5e-6/G/state/weights.pt
+3367e5656c2b72a6  fork/runs_t2/lr1e-5/C/state/weights.pt
+a6693161b3fc3fc3  fork/runs_t2/lr5e-6/C/state/weights.pt
+b3bb41eb07bcf290  fork/runs_t3/lr5e-6/G/state/weights.pt
+/dev/md0         70G   48G   23G  68% /root/autodl-tmp
+0

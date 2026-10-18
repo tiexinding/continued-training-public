@@ -1,0 +1,396 @@
+{
+ "overlap_drop_by_switch_down": {
+  "MG": 0.4809794490599038,
+  "GM": 0.4605337236797657,
+  "PG": 0.4511869202955509
+ },
+ "overlap_drop_range_pct_down": {
+  "value": [
+   45.11869202955509,
+   48.09794490599038
+  ],
+  "printed": [
+   45,
+   48
+  ],
+  "ok": true
+ },
+ "overlap_drop_by_switch_gate": {
+  "MG": 0.5244285073957865,
+  "GM": 0.5965163445478405,
+  "PG": 0.5440742302825813
+ },
+ "overlap_drop_range_pct_gate": {
+  "value": [
+   52.44285073957865,
+   59.65163445478405
+  ],
+  "printed": [
+   52,
+   60
+  ],
+  "ok": true
+ },
+ "overlap_drop_by_switch_up": {
+  "MG": 0.49849356340728573,
+  "GM": 0.46075396102713534,
+  "PG": 0.46953310472170934
+ },
+ "overlap_drop_range_pct_up": {
+  "value": [
+   46.07539610271353,
+   49.849356340728576
+  ],
+  "printed": [
+   46,
+   50
+  ],
+  "ok": true
+ },
+ "retention": {
+  "M|down_proj|N": {
+   "enhancement": 0.8295304905280368,
+   "suppression": 1.004368858166375
+  },
+  "M|down_proj|O": {
+   "enhancement": 0.03817492493793436,
+   "suppression": -0.0009600973539163705
+  },
+  "M|down_proj|cos_rc": 0.9953876212239265,
+  "M|gate_proj|N": {
+   "enhancement": 0.5208428265618903,
+   "suppression": 0.9831013678453542
+  },
+  "M|gate_proj|O": {
+   "enhancement": 0.30642044860943857,
+   "suppression": -0.0156532296644551
+  },
+  "M|gate_proj|cos_rc": 0.99211560562253,
+  "M|up_proj|N": {
+   "enhancement": 0.6760091857317065,
+   "suppression": 0.9966676195927575
+  },
+  "M|up_proj|O": {
+   "enhancement": 0.18218401031014977,
+   "suppression": 0.0012356587636134888
+  },
+  "M|up_proj|cos_rc": 0.9946653693914413,
+  "Ag|down_proj|N": {
+   "enhancement": 1.0803564799935734,
+   "suppression": 0.9770954025004597
+  },
+  "Ag|down_proj|O": {
+   "enhancement": -0.014392936456574683,
+   "suppression": 0.010530878743472659
+  },
+  "Ag|down_proj|cos_rc": 0.9967449754476547,
+  "Ag|gate_proj|N": {
+   "enhancement": 0.7655485935536743,
+   "suppression": 0.9663004864664995
+  },
+  "Ag|gate_proj|O": {
+   "enhancement": 0.11908952905635986,
+   "suppression": 0.03871722866482466
+  },
+  "Ag|gate_proj|cos_rc": 0.9929368272423744,
+  "Ag|up_proj|N": {
+   "enhancement": 0.5340932507194983,
+   "suppression": 0.9582099745353883
+  },
+  "Ag|up_proj|O": {
+   "enhancement": 0.32805913483903215,
+   "suppression": 0.03343510752733573
+  },
+  "Ag|up_proj|cos_rc": 0.9958277195692062
+ },
+ "N_enhancement_pct_down_gate_up_x_MBPP_GSM8K": {
+  "value": [
+   82.95304905280368,
+   108.03564799935734,
+   52.08428265618903,
+   76.55485935536743,
+   67.60091857317066,
+   53.40932507194983
+  ],
+  "printed": [
+   83,
+   108,
+   52,
+   77,
+   68,
+   53
+  ],
+  "ok": true
+ },
+ "N_suppression_range_pct": {
+  "value": [
+   95.82099745353882,
+   100.4368858166375
+  ],
+  "printed": [
+   96,
+   100
+  ],
+  "ok": true
+ },
+ "O_enhancement_range_pct": {
+  "value": [
+   -1.4392936456574683,
+   32.80591348390322
+  ],
+  "printed": [
+   -1,
+   33
+  ],
+  "ok": true
+ },
+ "O_suppression_range_pct": [
+  -1.56532296644551,
+  3.871722866482466
+ ],
+ "rc_cos_range": {
+  "value": [
+   0.99211560562253,
+   0.9967449754476547
+  ],
+  "printed": [
+   0.992,
+   0.997
+  ],
+  "ok": true
+ },
+ "rc_relerr_range": {
+  "value": [
+   0.08068487531557914,
+   0.12557383786020093
+  ],
+  "printed": [
+   0.08,
+   0.13
+  ],
+  "ok": true
+ },
+ "keep_t_factor": {
+  "step1": 1.016467471185421,
+  "max": 2.216681565076177,
+  "argmax_step": 14,
+  "step125": 1.3299652030087832,
+  "mean": 1.6674483774035083
+ },
+ "keep_t_factor_step1_max_step125": {
+  "value": [
+   1.016467471185421,
+   2.216681565076177,
+   1.3299652030087832
+  ],
+  "printed": [
+   1.0,
+   2.2,
+   1.3
+  ],
+  "ok": true
+ },
+ "keep_t_factor_mean": {
+  "value": [
+   1.6674483774035083
+  ],
+  "printed": [
+   1.67
+  ],
+  "ok": true
+ },
+ "t_reset_factor": {
+  "min": 0.42440124911068183,
+  "max": 0.9188586677953449,
+  "lr_weighted": 0.5884105730969192
+ },
+ "t_reset_factor_range": {
+  "value": [
+   0.42440124911068183,
+   0.9188586677953449
+  ],
+  "printed": [
+   0.42,
+   0.92
+  ],
+  "ok": true
+ },
+ "t_reset_factor_lr_weighted": {
+  "value": [
+   0.5884105730969192
+  ],
+  "printed": [
+   0.6
+  ],
+  "ok": true
+ },
+ "rowcol_count_ratio": {
+  "value": [
+   756.6222222222223
+  ],
+  "printed": [
+   760
+  ],
+  "ok": true
+ },
+ "beta2_k_108_125": {
+  "value": [
+   0.8824417114557709,
+   0.8975790935118431
+  ],
+  "printed": [
+   0.88,
+   0.9
+  ],
+  "ok": true
+ },
+ "audit_formula_maxrel_e7": {
+  "value": [
+   1.5385693075131712
+  ],
+  "printed": [
+   1.5
+  ],
+  "ok": true
+ },
+ "audit_fp32_floor_median_max_pct": {
+  "value": [
+   0.4080868504194769,
+   2.3137234510432374
+  ],
+  "printed": [
+   0.4,
+   2.3
+  ],
+  "ok": true
+ },
+ "audit_min_signal_over_floor": 43.220377074412625,
+ "audit_negative_kl_counts": {
+  "new|N": [
+   0,
+   0
+  ],
+  "new|O": [
+   0,
+   0
+  ],
+  "new|RC": [
+   0,
+   0
+  ],
+  "new|C": [
+   0,
+   0
+  ],
+  "new|PN": [
+   0,
+   0
+  ],
+  "new|OE": [
+   0,
+   0
+  ],
+  "new|CE": [
+   0,
+   0
+  ],
+  "new|RE0": [
+   0,
+   0
+  ],
+  "new|RE1": [
+   0,
+   0
+  ],
+  "new|RE2": [
+   0,
+   0
+  ],
+  "old|N": [
+   0,
+   0
+  ],
+  "old|O": [
+   0,
+   0
+  ],
+  "old|RC": [
+   5,
+   12
+  ],
+  "old|C": [
+   0,
+   0
+  ],
+  "old|PN": [
+   0,
+   0
+  ],
+  "old|OE": [
+   9,
+   19
+  ],
+  "old|CE": [
+   0,
+   0
+  ],
+  "old|RE0": [
+   0,
+   0
+  ],
+  "old|RE1": [
+   0,
+   0
+  ],
+  "old|RE2": [
+   0,
+   0
+  ]
+ },
+ "audit_negative_kl_RC_OE_old": {
+  "value": [
+   5,
+   12,
+   9,
+   19
+  ],
+  "printed": [
+   5,
+   12,
+   9,
+   19
+  ],
+  "ok": true
+ },
+ "audit_fp32_fp64_kl_rel": {
+  "new|N": 6.405786145414932e-05,
+  "new|O": 1.8228739575035446e-05,
+  "new|RC": 0.0019767044330916907,
+  "new|C": 2.5728394582375734e-05,
+  "new|PN": 0.00016224476388124312,
+  "new|OE": 0.008155106019958225,
+  "new|CE": 3.3895751523549656e-05,
+  "new|RE0": 1.1776571210833688e-05,
+  "new|RE1": 1.1271167619583364e-06,
+  "new|RE2": 4.5607063359812e-06,
+  "old|N": 0.02797411035787827,
+  "old|O": 0.0010545354285723208,
+  "old|RC": 0.03690360736074126,
+  "old|C": 0.0023168819489111517,
+  "old|PN": 0.0042421581767655,
+  "old|OE": 0.10837202448873166,
+  "old|CE": 0.0004444029120963111,
+  "old|RE0": 0.002340513698725494,
+  "old|RE1": 0.0039012685699337762,
+  "old|RE2": 0.00028251535084655006
+ },
+ "audit_fp32_fp64_OE_old_pct": {
+  "value": [
+   10.837202448873166
+  ],
+  "printed": [
+   11
+  ],
+  "ok": true
+ }
+}

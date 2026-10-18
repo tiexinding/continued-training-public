@@ -1,0 +1,118 @@
+{
+ "b2/fields/Cfresh_A_B_fields.npz": {
+  "sha256": "e68a2e292d23e2a26075239ceb1170dd5fefe7185b2569a58a50fa1aa53be0e3",
+  "bytes": 31310390
+ },
+ "b2/fields/Cfresh_A_contA_fields.npz": {
+  "sha256": "95a91df69c75fbd360e0991553faef93606a8f8491b73d9c9d2acb26e7b158a0",
+  "bytes": 31334671
+ },
+ "b2/fields/Kv_A_B_fields.npz": {
+  "sha256": "e4f01237a172b78efc3f1c34b29294d06fa374c76eebe41d8849982ad0b77fdf",
+  "bytes": 31519056
+ },
+ "b2/fields/bridge_A_B_fields.npz": {
+  "sha256": "62fe088ba6a629286841255582c346510aca40ba3145e1babade997be5f11a68",
+  "bytes": 31315318
+ },
+ "b2/records/runs_b2/Kv/records/fields_0001.pt": {
+  "sha256": "6ad6117f095cf103fc15f914273cd556aac20bcab80e377ebc945dd8e07f2df8",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/Kv/records/fields_0002.pt": {
+  "sha256": "c62d4021d90fb8b148f5c35152dd7be073a0c78462e4509bcd1624657600b497",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/Kv/records/fields_0005.pt": {
+  "sha256": "30441ec651e6b9d07d70ba05470ebbe18d2e0be80b43e1a8dec615f70efd18d2",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/Kv/records/fields_0010.pt": {
+  "sha256": "f6a785920ad80dfa2d62b60d95dabbb8882931a4d9a5830ba6a397915ad953a9",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/Kv/records/fields_0025.pt": {
+  "sha256": "f2e3dea587f7bfdd746c41fc5bf4bf857cf7420d3c1dba6d5d58a07338c09813",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/Kv/records/fields_0050.pt": {
+  "sha256": "4b3c0897be339733c5973692e71d44985f8b4f1f4929cb9d156efa941f299364",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/Kv/records/fields_0075.pt": {
+  "sha256": "143ce0431fa2bf7105212c314662da5cb689ba797f1a10d32d1358e4afdd95b7",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/Kv/records/fields_0100.pt": {
+  "sha256": "e9c6d64afadad238c501e7fb658c587130348cc197f94c061905db15c2fc0af6",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/Kv/records/fields_0125.pt": {
+  "sha256": "e8637e38f4c79533ba7ad4af2ea14489dc34689cbefc5889787fd5e638f8a42f",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0001.pt": {
+  "sha256": "b03f93185dc21c2253b75a662a3ec86ac5504b38b6bf9e3d070851187ab79542",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0002.pt": {
+  "sha256": "1e709536855a903d09403b53a46f6c3a999edc4fde171fba9eab50580e2af5e4",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0005.pt": {
+  "sha256": "c29947906abd70c0d995729eceaab35ee9303bf98a488b92ac94df6800340163",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0010.pt": {
+  "sha256": "40d77a1aeb3cfbb8e35facd946bd41621bad7b78cfe359e8ccdd537cd21b3464",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0025.pt": {
+  "sha256": "e79cd31a9e3ac7cef7450d151c4d6f2d2b12d6b71f74bce2d23581ab5b1752f5",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0050.pt": {
+  "sha256": "326916bc1c6e3b5d6a72c469d33286487484c83e863d3d335771421ee44c643d",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0075.pt": {
+  "sha256": "1ec9f532820d1cb4527576df86be29852c2501e0c6390e40a884ea03a63fde4c",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0100.pt": {
+  "sha256": "218c9ca05c2253031f1cbc4d0b483f6d6dcef495517f0eac4777afd057b68ec7",
+  "bytes": 21993894
+ },
+ "b2/records/runs_b2/bridge/records/fields_0125.pt": {
+  "sha256": "995b74e2c390af13eab51699d6f93b8d16190606a5eb7be7f0c0be340cdb4390",
+  "bytes": 21993894
+ },
+ "c/fields/K_mvt_rec_A_B_fields.npz": {
+  "sha256": "8a7f458fff9f97ef1d040faf0200658abeaf1a69a41f67c33d06c1895d23965c",
+  "bytes": 31490857
+ },
+ "c/fields/K_vt_s31_A_B_fields.npz": {
+  "sha256": "75fca9903b79a7d3c85702dd8be076a8610f6f78184a6c809d495039d92fcb9b",
+  "bytes": 31518250
+ },
+ "d/records/R_vt/fields_0002.pt": {
+  "sha256": "a427fb159460733dffc8c88871b2fbfb3f591faf80b284f6e233b542305da0c9",
+  "bytes": 21993894
+ },
+ "d/records/R_vt/fields_0010.pt": {
+  "sha256": "3d85da6dce7a2a9853f47112227ebea7ca2c07627cc9f3839541d64c205f19c1",
+  "bytes": 21993894
+ },
+ "d/records/R_vt/fields_0100.pt": {
+  "sha256": "ce29dc6ef0243758733967298c4238b5da28357ba07a706ffe9ef1859a00b8fb",
+  "bytes": 21993894
+ },
+ "t2/fields/A_B_fields.npz": {
+  "sha256": "8a7f458fff9f97ef1d040faf0200658abeaf1a69a41f67c33d06c1895d23965c",
+  "bytes": 31490857
+ },
+ "t3/fields/A_B_fields.npz": {
+  "sha256": "214958655c56528cf92ca0fe1076a62cb52bf0194cbc79db287e4895264f324c",
+  "bytes": 31292968
+ }
+}

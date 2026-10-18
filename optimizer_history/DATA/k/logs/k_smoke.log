@@ -1,0 +1,14 @@
+[     4.7s] loaded
+smoke 轴恒定/置换多重集: True
+[     5.3s] grads
+smoke 公式核对 max rel 1.5385693075131712e-07
+[     5.4s] captured h
+[     5.7s] r3 batch 0
+[     6.0s] r4 batch 0
+[     6.1s] r3 batch 1
+[     6.3s] r4 batch 1
+checks: {'axis_constancy_and_perm_multiset': True, 'formula_vs_DecompAdamW_maxrel': 1.5385693075131712e-07, 'formula_ok': True, 'nonff_untouched': True, 'all_restored': True, 'ff_restored_to_loaded': True, 'h_identical_after': True, 'energy_match_dev_max': 6.913009130580502e-08, 'T_self_error_zero': True, 's0_zero_dy': True}
+[     6.4s] done
+
+checks: {'axis_constancy_and_perm_multiset': True, 'formula_vs_DecompAdamW_maxrel': 1.5385693075131712e-07, 'formula_ok': True, 'nonff_untouched': True, 'all_restored': True, 'ff_restored_to_loaded': True, 'h_identical_after': True, 'energy_match_dev_max': 6.913009130580502e-08, 'T_self_error_zero': True, 's0_zero_dy': True}
+ALL SMOKE OK []
