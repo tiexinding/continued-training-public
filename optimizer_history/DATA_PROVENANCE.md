@@ -78,7 +78,7 @@ opens).
 | Tables 12, 13 [tab:calib, tab:applied] | `FS/analyze_i2.py` | `i/diag25/i/calib/*.json`, `i/diag25/i/i2_summary.json` |
 | Tables 14, 16 [tab:onestep, tab:onestep_cos] | `FS/analyze_e.py` | `e/summary_e.json`; up columns and both starts from `e/diag25/e1/adam_offline_v3_{M,Ag}.json` |
 | Table 17 [tab:kround] | `FS/analyze_k.py` | `k/k_M.json` → `k/summary_k_M.{json,md}` |
-| Table 18 [tab:predictors] | `FS/predictors_mg.py` (MG, *tier B*), `FS/regen/gen_predictor_baselines_dir2.py` (GM, *tier B*) | `release/predictors_MG.json`, `b4/early_checkpoint_W4_4.json`, `d/predictor_baselines_dir2.json` |
+| Table 18 [tab:predictors] | `FS/predictors_mg.py` (MG, *tier B*), `FS/regen/gen_predictor_baselines_dir2.py` (GM, *tier B*) | `release/predictors_MG.json` (incl. MG new-task activation 0.28), `b4/early_checkpoint_W4_4.json`, `d/predictor_baselines_dir2.json` |
 | Table 20 [tab:humaneval] | `FS/table_humaneval_holm.py` | `e/diag25/e4/humaneval_e.json`, `e/humaneval_e_rescore.json`, `h/diag25/f1/heval_h_PG_*_s{31,47}.json` → `release/tab_humaneval_rows.tex` |
 | Table 22 [tab:probeloss] | `FS/regen/gen_nll_two_calibers_e.py` | `e/nll_two_calibers_e.json` |
 

@@ -1,0 +1,20 @@
+{
+ "n": {
+  "old": 102,
+  "new": 898
+ },
+ "input_tokens": {
+  "old": 20765,
+  "new": 192120
+ },
+ "supervised_tokens": {
+  "old": 6655,
+  "new": 111751
+ },
+ "old_frac_input": 0.09754092585198582,
+ "old_frac_sup": 0.0562049220478692,
+ "truncated": 1,
+ "steps": 125,
+ "kept_rows": 1005,
+ "raw_rows": 1007
+}

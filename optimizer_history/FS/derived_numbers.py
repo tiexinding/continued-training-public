@@ -65,7 +65,7 @@ r = [(math.sqrt(1 - B2 ** k) / (1 - B1 ** k)) / (math.sqrt(1 - B2 ** (125 + k)) 
 W = math.ceil(125 * 0.05); lr = [(k / W if k < W else 1.0) for k in range(125)]   # forklib.lr_at（k 为 0 起的步号）
 S["t_reset_factor"] = dict(min=min(r), max=max(r), lr_weighted=sum(a * b for a, b in zip(lr, r)) / sum(lr))
 check("t_reset_factor_range", [min(r), max(r)], [0.42, 0.92], 2)
-check("t_reset_factor_lr_weighted", S["t_reset_factor"]["lr_weighted"], 0.6, 1)
+check("t_reset_factor_lr_weighted", S["t_reset_factor"]["lr_weighted"], 0.59, 2)
 
 # §8：参数计数与历史衰减系数
 check("rowcol_count_ratio", (896 * 4864) / (896 + 4864), 760, -1)

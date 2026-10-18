@@ -155,6 +155,7 @@ a88c6fffc5016563be709ce8de270619      1106349  DATA/e/diag25/e7/humaneval_diag.j
 cb965cac00e4862f4e34748f3ea5980b       505469  DATA/e/humaneval_e_rescore.json
 ad8f9c1f1404ac3d4dc3956777dfa5e9         4448  DATA/e/humaneval_pairs_e_rescore.json
 5533b7db565e67fe0d957991ca85fdb3         2406  DATA/e/nll_two_calibers_e.json
+90bf1c4bf83fb6cdf0216b638fc5690c          303  DATA/e/replay_budget_audit.json
 e9b7df4bbeb9ad871f26185097b5e9b6        21993  DATA/e/runs_e/B_c/log.jsonl
 d68457f37255beed02533d8017ba9bbd        21722  DATA/e/runs_e/B_g/log.jsonl
 c3de0beca8ffab3846c7fc33f86a968d        22483  DATA/e/runs_e/E_0/log.jsonl
@@ -423,7 +424,7 @@ cba0a34d9590a3f42ac724390c4358a6         8386  DATA/k/summary_k_M.md
 7fb8fe05741a228996772acacc7032ed        22750  DATA/k/vfactor_Ag.json
 968a13da27ad3adcaee8d34aa39cc3e9        22759  DATA/k/vfactor_M.json
 177bce97761b008abf074891b1da935a          241  DATA/r07/indent_in_gsm8k_targets.json
-dfee0e6e0d2260c6ad952ae08bc6c6cf         6246  DATA/release/derived_numbers.json
+99b599bc7546a7c61603fd08ed13924b         6247  DATA/release/derived_numbers.json
 0498e6e2a759eeb15de5dd1701bf174b          377  DATA/release/predictors_MG.json
 6f984ec10502fd3b142ae3ad8523585d          659  DATA/release/tab_humaneval_rows.tex
 3c60d4349a6f9d5e0f1224143bf0f93e         4489  DATA/release/table_humaneval_holm.json
@@ -447,7 +448,7 @@ af19b9b63a80bfd67e318031aba437a7        83650  DATA/t3/diag25/t3/Gfreshfinal_max
 62dd56153353202fefefad4dd52ad424        21259  DATA/underspec/c3c4_tables.md
 8c9041c11eae00dedd987e8efa140fc4         3203  DATA/underspec/j_verdict.json
 d0c9a2da23c00a711dd1a25ef301e050         7249  DATA/underspec/tail_batch.json
-bb58f64c2f3669bc5f42d1028977fcee        15044  DATA_PROVENANCE.md
+763cbfa42601c691383d01bff7b31cc8        15080  DATA_PROVENANCE.md
 710599f566c796067fe51bc828a8d292        70320  FIG/fig0_mechanism.pdf
 d9d42940dfeb55d0e99e9b1c3551f289        25505  FIG/fig2_core_allocation.pdf
 d066a3772656f2cc05cac2add60382e3       128496  FIG/fig2_core_allocation.png
@@ -473,7 +474,7 @@ f650ff8536f3496c2116c16a8471d97a         5137  FS/analyze_j.py
 e39e3e7887a3a14bfdaa31e164c63b44         6684  FS/analyze_k.py
 9ea4f33e64fe1abfc276d530c001e8ee         2046  FS/chan_agree_k.py
 2ba5f1be26f053c67a8ad80107159ee9         1128  FS/count_indent_targets.py
-b2f1e631ee72ab376502db873b85cfa9         7480  FS/derived_numbers.py
+7700101761388924cd0a38279cc65143         7481  FS/derived_numbers.py
 ae5bd5b3e49fab8269cd1eb5339cfc9c        14223  FS/draw_mechanism_v8.py
 9e64b221d8a27aa4a7fd5337e67e4433         3562  FS/gen_component_gateup.py
 94e78a4090c846a386db48e881b13d1a         6579  FS/make_fig2_v13.py
