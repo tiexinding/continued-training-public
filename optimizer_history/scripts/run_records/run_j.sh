@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # J 轮（文档 46 第 15 节，10-11）：一次顺序影响的验证干预。PG、留 v·t、125 步、lr 5e-6。
 #   J0  --order_file 写出种子 17 原顺序，终点须逐位等于 E_vt（b20283ded2934fc1），否则 J_ABORT

@@ -3,8 +3,8 @@
 设计要点
 - 训练循环与 AdamW 自己实现，以便逐步精确分解更新（旧一阶矩分量 / 新分量 / 权重衰减项）并维护影子状态。
   公式与 torch.optim.AdamW（adamw_torch，非 amsgrad）一致：先 p ← p(1−lr·wd)，再 p ← p − (lr/bc1)·m/(√v/√bc2 + ε)。
-- 数据格式化、探针编码与 NLL 口径逐行照搬 Ren 仓库（plasticity_loss_sft.data / probe_confidence_callback），
-  保证探针数值与 T7 可比（基座 GSM8K 全探针 0.7506）。
+- 数据格式化、探针编码与 NLL 口径参考 Ren 等公开代码（learning-dynamics-cl，commit b4962cc；plasticity_loss_sft.data /
+  probe_confidence_callback）改写并精简，行为与之一致，保证探针数值与 T7 可比（基座 GSM8K 全探针 0.7506）。
 - 训练样本分词有两种：'trl'（云卡上调用 TRL SFTTrainer 自身的预处理，与 T7 完全一致）与 'manual'（本地无 TRL 时的复刻，
   阶段 1 在卡上逐条对照两者）。
 - 损失归一化复刻 HF Trainer（梯度累积 8）：每个微批次的 token NLL 之和除以本优化步所有微批次的 completion token 总数。
@@ -24,7 +24,7 @@ BETA1, BETA2, EPS = 0.9, 0.999, 1e-8
 V_FLOOR = 1e-16  # = ε²，log v 加法分解的截断下限（文档 22 第 2.3 节）
 
 
-# ----------------------------------------------------------------------------- 数据（照搬 Ren data.py）
+# ----------------------------------------------------------------------------- 数据（参考 Ren data.py 改写）
 def _clean_message(m):
     role, content = str(m.get("role", "")).strip(), str(m.get("content", "")).strip()
     if not role or not content:
@@ -110,7 +110,7 @@ def tokenize_train_trl(rows, tok, model, max_len=512) -> list[TrainExample]:
     return out
 
 
-# ----------------------------------------------------------------------------- 探针（照搬 Ren probe_confidence_callback 口径）
+# ----------------------------------------------------------------------------- 探针（参考 Ren probe_confidence_callback 口径改写）
 @dataclass
 class ProbeExample:
     input_ids: list[int]

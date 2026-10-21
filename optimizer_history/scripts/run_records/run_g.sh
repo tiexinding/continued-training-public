@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 set +e
 R=/root/autodl-tmp/ren; W=$OH_RUNS; E=$W/runs_e; BG=$E/B_g/state

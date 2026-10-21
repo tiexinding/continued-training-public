@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # P1（10-05，老丁批）：低 lr 短训 + 多点生成评估。lr ∈ {1e-5, 5e-6, 2e-5}，GSM8K 1 轮（125 步），快照 10/25/50/75/100/125，
 # 每个快照做 GSM8K 留出 200 题生成（400 token）+ MBPP 探针 100 题 pass@1；探针 NLL 每 25 步由训练脚本记录。每档完成后删中间快照（保留第 125 步）。

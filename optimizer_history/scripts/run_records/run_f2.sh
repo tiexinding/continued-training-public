@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # F 轮续（文档 38 §9）：两条判别臂（从 B_g →GSM8K 125 步）：E_v = 留 v 清 t（去掉偏置校正放大）；E_vclamp = 留 v 留 t 但把几乎没用过的元素的 v 抬到 1% 典型值（去掉"未用参数大步"而保排列）。
 # 评估：成对结构、选择性重合、分段 NLL、首位置概率 + HumanEval 两规则（含旧四臂同口径复测）。最后回传记录。

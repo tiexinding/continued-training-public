@@ -9,7 +9,8 @@ in this directory.
 The package is copied to a temporary directory and every step runs there, so nothing in this directory is overwritten.
 Outputs are compared with the released copies: JSON by value (exact, or the largest relative difference), Markdown and
 LaTeX byte for byte, PDF figures byte for byte after removing the CreationDate entry.
-Requires Python 3.10+, numpy, scipy, matplotlib, pandas with pyarrow; torch for the tier-B steps."""
+Requires Python 3.10+, numpy, scipy, matplotlib, pandas with pyarrow, and torch (tier-A steps read released .pt
+records; no GPU and no training are needed). See requirements-analysis.txt."""
 import argparse, json, math, os, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 

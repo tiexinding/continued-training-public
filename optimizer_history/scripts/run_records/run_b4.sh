@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # 批次 4（10-06）：神经元级分析与局部干预（在批次 3 之后串行，避免 GPU/CPU 争用）。
 #  W4-1/2 neuron_act：M 上三任务探针的前馈中间神经元激活统计 + 与 M→Gkeep / M→Gfresh / M→Kv / M→bridge 改动排序的重合；

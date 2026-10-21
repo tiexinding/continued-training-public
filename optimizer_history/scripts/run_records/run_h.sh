@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # H 轮（文档 41 v3，10-09 开卡）：H0 指纹 + 冒烟 + 确定性复跑 → H5′ 种子 31（10 条）→ H3 种子 17 中位数校准补齐（3 条）→ H5″ 种子 47（12 条）
 # 每条运行流水：训练（--upd_energy，H2′）→ 成对分析 A→B（--ab_only，含平衡分解收敛记录）→ HumanEval（两规则 + 无缩进率）→ 逐样本损失 → 删终点快照

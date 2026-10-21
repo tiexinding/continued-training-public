@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # T2（10-05，老丁令"从 M 出发做 M→GSM8K"）：以 T1 的 M（基座→MBPP，lr 1e-5，108 步，含优化器状态）为同起点，
 #   G_lr = M→GSM8K 1 轮 125 步（keep 状态），lr 5e-6 / 1e-5；  C_lr = M→MBPP 再 1 轮（keep，同任务对照，顺序种子 23），lr 5e-6 / 1e-5。

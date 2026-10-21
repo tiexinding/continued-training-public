@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # K 轮（文档 47 v2）。分阶段：bash run_k.sh 1 → 冒烟 + legacy_check + 计时试跑（fp32 / fp64 各 1 批 8 题）；查看后再 bash run_k.sh 2（MG 主分析）、bash run_k.sh 3（PG 复验，预授权）。
 set +e

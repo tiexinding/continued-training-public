@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # H2（文档 41 §3）：校准核对 —— 逐位重算 c、独立批次上的实际匹配误差、log v 行列模型 R² 口径。等 run_h.sh 结束（DONE_h）后串行执行（显存不与训练并用）。
 set +e

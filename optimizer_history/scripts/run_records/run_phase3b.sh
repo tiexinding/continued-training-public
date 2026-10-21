@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # 阶段 3 队列 v2（10-05 14:10）：训练与评估立即开跑（不等阶段 2），四层分析放到最后用 GPU 后端（等 $W/GPU_BACKEND_READY）。
 # 每档 lr ∈ {2e-5, 5e-5}：A = base→GSM8K 216 步（fresh）；B = A→MBPP 216 步（keep）；C = A→GSM8K 再 216 步（keep，同起点对照）。

@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # T3（10-05，老丁批）：检验"优化器状态失配"假说。M→GSM8K，lr 5e-6，1 轮 125 步，--switch fresh（重置 AdamW 状态），
 # 与 T2 的 G 5e-6（keep）同起点同数据顺序只差状态处理。终态生成评估 + 四层分析（A=M, B=G_fresh, C=T2 的 C 5e-6）。

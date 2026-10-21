@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # D 轮（文档 31 第 4 节；10-07 准备）：D0 清盘 → D1 修正版离线反事实（M 起点 + 第二方向起点）→ D2 第二任务方向最小四臂（:matched）→ D3 成对分析 + 选择性重合 → D4 功能 → D5 干预 v3 → D6 收尾
 set +e

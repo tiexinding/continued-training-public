@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # T1 换任务测试（10-05，老丁令"考虑换任务的计划，展开测试"）：第一任务改为 MBPP（0.5B 基座 pass@1 24%，有提升空间），
 # 新任务收益 = MBPP pass@1，旧能力保持 = GSM8K 留出宽松正确率（基座 42.5%）与 Dolly/GSM8K 探针 NLL。

@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # E 轮（文档 31 第 9 节 P1–P4；文档 34）：E0 清盘上传校验 → E1 离线 v3（M、A_g）→ E2 真正新任务对 Bio→GSM8K 四臂（matched_med）+ 同任务对照 + 第二方向 R_vperm 用 matched_med 复跑 → E3 回放两臂 → E4 评估 → E5 独立同域确认干预 → E6 收尾
 set +e

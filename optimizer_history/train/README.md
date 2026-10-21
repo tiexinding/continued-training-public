@@ -5,7 +5,7 @@
 | file | role |
 |---|---|
 | `fork_continue.py` | second-stage trainer: loads a stage-A state (weights + AdamW m, v, t) and applies the switch treatment (`--m_op`, `--v_op`, `--t_reset`, `--switch`); also runs stage A (`--mode segment`); records per-step fields, calibration constants (`records/match_c.pt`), applied-update statistics (`--upd_stats`) and per-step energy (`--upd_energy`) |
-| `forklib.py` | decoupled AdamW (`DecompAdamW`, β = (0.9, 0.999), ε = 1e-8, decoupled weight decay 0.01, clipping 1.0), the v replacements (`v_ladder`: row–column factors of log v, single-axis factors, permutations, constant), calibration (`match_coeffs`), tokenization (`tok_mode manual`), data order (`epoch_order`) and the learning-rate schedule (`lr_at`: 5% linear warm-up, then constant) |
+| `forklib.py` | data formatting and probe loss rewritten after the public code of Ren et al. (see `../THIRD_PARTY_NOTICES.md`); decoupled AdamW (`DecompAdamW`, β = (0.9, 0.999), ε = 1e-8, decoupled weight decay 0.01, clipping 1.0), the v replacements (`v_ladder`: row–column factors of log v, single-axis factors, permutations, constant), calibration (`match_coeffs`), tokenization (`tok_mode manual`), data order (`epoch_order`) and the learning-rate schedule (`lr_at`: 5% linear warm-up, then constant) |
 | `state_mix_eval.py` | per-problem probe NLL (`segnll`) |
 | `replay_data.py` | old-task replay at a fixed token budget (10%) |
 | `anchor_data.py` | self-anchored replay: the start's own answers on other prompts |
@@ -18,7 +18,8 @@ key `t1/lr1e-5`.
 ### Code version
 
 Results come from three successive versions of `fork_continue.py`; the released file is the latest
-(SHA-256 prefix `5f5c34f035be94de`; `forklib.py` `c58936e80ebd0e6b`, `state_mix_eval.py` `c5559d84d0ef2f6e`). Each
+(SHA-256 prefix `5f5c34f035be94de`; `forklib.py` `c58936e80ebd0e6b` as run, `aeb0f5b8f5d774b8` as released after a
+comment-only revision on 2026-10-21, code unchanged; `state_mix_eval.py` `c5559d84d0ef2f6e`). Each
 later version only added options whose default reproduces the earlier behaviour:
 
 | added | options | runs that use them |
@@ -33,13 +34,22 @@ original probe evaluation (`DATA/i/status/verify_i.tsv`).
 
 ## Data
 
-The training and probe subsets were built with the code of Ren et al. (`learning-dynamics-cl`, commit `b4962cc`):
+The training and probe subsets were built with the preparation scripts of Ren et al. (`learning-dynamics-cl`, commit
+`b4962cc`), run from its `plasticity/` directory with `PYTHONPATH=src`:
 
 ```sh
 python -m plasticity_loss_sft.prepare_subsets --tokenizer_name Qwen/Qwen2.5-0.5B-Instruct \
     --train_size 1000 --probe_size 100 --allow_smaller            # seed 17 (default): gsm8k, mbpp, dolly_qa
-python -m plasticity_loss_sft.prepare_cpt_data --tokenizer_name Qwen/Qwen2.5-0.5B-Instruct ...  # bio (PubMed) train and probe
+python -m plasticity_loss_sft.prepare_cpt_data --tokenizer_name Qwen/Qwen2.5-0.5B-Instruct --output_dir data/cpt_pubmed \
+    --local_jsonl "<pubmed_src>/pubmed_chunk_*.jsonl"     # bio (PubMed) train and probe; other options at their defaults
 ```
+
+For PubMed, `<pubmed_src>` holds the first six `pubmed_chunk_*.jsonl` files, in file-name order, of
+`slinusc/PubMedAbstractsSubset`; they were downloaded from `main` on 2026-09-30 (the dataset's last change, revision
+`111f2d4`, is dated 2025-06-12, so this is taken to be that revision; the download itself recorded only file sizes).
+With the defaults (seed 17, 1,000 training and 100 probe documents, at least 64 tokens each) the first 1,100 valid
+abstracts are reserved as the bio subset before the continued-pretraining stream is cut; the stream itself is not used
+in this paper.
 
 Sources: `openai/gsm8k` (7,473 training problems), `google-research-datasets/mbpp` (974; 874 training items after
 the code's filtering), `databricks/databricks-dolly-15k` (closed QA, 1,773), `slinusc/PubMedAbstractsSubset` (the

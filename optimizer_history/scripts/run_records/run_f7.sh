@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # F12（老丁问"vfac 能否去掉 t"）：行列近似 + 清 t（E_vfac_t0）、通道置换 + 清 t（E_vperm_t0）；评估同 F7 / F11。匹配系数在清 t 之前按旧 t 计算。
 # 评估：成对结构、选择性重合、分段 NLL、首位置概率 + HumanEval 两规则（含旧四臂同口径复测）。最后回传记录。

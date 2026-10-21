@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # 阶段 3（10-05，老丁批两档 lr）：保能力训练设置下的同起点分叉 + 生成能力核查 + 四层端点分析。
 # 每档 lr ∈ {2e-5, 5e-5}：A_lr = base→GSM8K 216 步（fresh）；B_lr = A_lr→MBPP 216 步（keep）；C_lr = A_lr→GSM8K 再 216 步（keep，同起点对照）。

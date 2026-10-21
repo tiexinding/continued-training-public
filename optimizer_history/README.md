@@ -5,6 +5,13 @@ Companion data and code for the paper:
 > **How AdamW's Second-Moment History Shapes Update Allocation After a Task Switch**
 > Tiexin Ding. arXiv identifier to be added.
 
+![Figure 1 of the paper: the training loop, the AdamW state treatments at the switch, and the measurements](FIG/fig0_mechanism.png)
+
+*Figure 1 of the paper.* Within each switch and data order, every stage-B branch starts from the same checkpoint and
+data and differs only in how the AdamW state (m, v, t) is treated at the switch. Numbered badges mark the state
+treatments (1), the row and column factors of log v (2), the allocation of the net change over neurons (3), the
+one-step output responses (4) and the behavioral evaluation (5).
+
 The experiments fine-tune Qwen2.5-0.5B-Instruct in two stages (three task switches: MBPP→GSM8K, GSM8K→MBPP,
 PubMed→GSM8K) and vary only how the AdamW state is treated at the switch. All runs are full-parameter fine-tuning;
 LoRA was not tested.
@@ -55,11 +62,13 @@ public code of Ren et al. (`learning-dynamics-cl`, commit `b4962cc`).
 optimizer_history/
 ├── DATA/                 read-outs (tier A, ~105 MB); DATA/TIER_B_sha256.json lists the tier-B arrays
 ├── FS/                   local figure, table and summary scripts; FS/regen/ recovered one-off aggregation steps
-├── scripts/              GPU-card extraction scripts; scripts/run_records/ the recorded run queues
+├── scripts/              GPU-card extraction scripts; scripts/run_records/ historical run queues (audit only, not runnable)
 ├── train/                trainer, optimizer, data construction, run_configs/, data/ (README in train/)
 ├── FIG/                  the paper's figures (PDF and PNG)
 ├── extra_tables/         supplementary tables S1–S7 (LaTeX)
-├── reproduce.py          rebuilds every figure, table and summary read-out and checks them against DATA/ and FIG/
+├── reproduce.py          rebuilds the nine figures and the listed summary read-outs and checks them against DATA/ and FIG/
+├── requirements-analysis.txt  dependencies of reproduce.py
+├── THIRD_PARTY_NOTICES.md  code and data from other sources and their terms
 ├── DATA_PROVENANCE.md    map from every figure, table and quoted number to its read-out, script and raw source
 └── MANIFEST.txt          MD5 and size of every released file
 ```
@@ -72,8 +81,17 @@ python reproduce.py
 
 This copies the package to a temporary directory, runs every local step there and compares each output with the
 released copy (JSON by value, Markdown and LaTeX byte for byte, PDF byte for byte after removing the creation date).
-On the author's machine all 22 tier-A steps reproduce exactly, including the nine figures. Requirements: Python 3.10+,
-numpy, scipy, matplotlib, pandas with pyarrow (tested with numpy 2.4, scipy 1.17, matplotlib 3.10, pandas 3.0).
+On the author's machine all 22 tier-A steps reproduce exactly, including the nine figures. Tables written by hand in
+the paper and the supplementary tables S1–S7 are linked to their read-outs in `DATA_PROVENANCE.md` but are not
+checked cell by cell by this command.
+
+Requirements (`requirements-analysis.txt`): Python 3.10+, numpy, scipy, matplotlib, pandas with pyarrow, and torch
+(tested with numpy 2.4, scipy 1.17, matplotlib 3.10, pandas 3.0, torch 2.11). torch reads released `.pt` training
+records; a CPU build is enough, and no step trains a model. Training and checkpoint extraction need further packages
+(`train/README.md`).
+
+`scripts/humaneval_rescore.py` (not called by `reproduce.py`) executes model-generated programs in a subprocess; run
+it only in an isolated environment.
 
 `python reproduce.py --tier_b` adds eight steps that start from per-neuron change arrays and per-step training records
 (tier B, about 0.9 GB). Tier B is not released; names, sizes and SHA-256 are in `DATA/TIER_B_sha256.json`, and the
@@ -128,5 +146,5 @@ recorded hashes. `DATA_PROVENANCE.md` §6 lists what remains only on the card.
 
 ## License
 
-Code: see the repository license. Data derived from public benchmarks keeps the benchmark's terms: GSM8K (MIT),
+Code: see the repository license; code adapted from other sources is listed in `THIRD_PARTY_NOTICES.md`. Data derived from public benchmarks keeps the benchmark's terms: GSM8K (MIT),
 HumanEval (MIT; `DATA/h/humaneval.parquet` is the unmodified problem file), MBPP (CC BY 4.0), Dolly (CC BY-SA 3.0).

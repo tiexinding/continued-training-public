@@ -103,8 +103,9 @@ Numbers quoted in the text:
 
 ## 4 Release tiers
 
-- **Tier A (this repository, ~105 MB):** every read-out above except the tier-B arrays. All figures and tables and all
-  numbers except those marked *tier B* reproduce from tier A.
+- **Tier A (this repository, ~105 MB):** every read-out above except the tier-B arrays. All figures and all tables and
+  numbers except those marked *tier B* trace to tier-A read-outs; `reproduce.py` rebuilds the figures and the listed
+  summary read-outs, while hand-written tables are linked to their read-outs here.
 - **Tier B (~0.9 GB, not released):** eight per-neuron change arrays (`*_A_B_fields.npz`) and 35 per-step
   training records (`records/fields_*.pt`). They are inputs only to the eight steps marked *tier B*; their outputs are in
   tier A. They are not released because of their size; names, sizes and SHA-256 are in

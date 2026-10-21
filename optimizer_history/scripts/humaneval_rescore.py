@@ -1,7 +1,8 @@
 """本地重判分（不推理）：读取 humaneval_*.json 中保存的 outs，用两种拼接规则重新执行。
 规则 v2（原）：含 def entry_point → header+body；否则 prompt+body（不缩进）。
 规则 v3（自动缩进）：同 v2，但当 body 不含 def entry_point 且首个非空行无缩进时，整体缩进 4 空格。
-输出每臂两种规则的 passed 与错误类型。"""
+输出每臂两种规则的 passed 与错误类型。
+注意：本脚本以子进程直接执行模型生成的程序，10 秒超时不是隔离措施；请在隔离环境（容器或虚拟机）中运行。"""
 import json,re,sys,subprocess,tempfile,os,numpy as np,math,collections
 from pathlib import Path
 rows=[json.loads(l) for l in open(sys.argv[1])]; H=json.load(open(sys.argv[2])); out=sys.argv[3]

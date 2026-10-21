@@ -1,4 +1,4 @@
-# 发布包：卡上运行队列的原始记录；路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2）
+# 发布包：卡上运行队列的原始记录，仅供审计，不能直接运行（见本目录 README.md）；部分路径已换为 $OH_TRAIN / $OH_SUBSETS / $OH_RUNS（见 DATA_PROVENANCE §2），仍含卡上路径与清理命令
 #!/bin/bash
 # 批次 2（10-06）：从 M 出发、GSM8K、lr 5e-6、1 轮 125 步、顺序种子 17（与 T2 G keep / T3 G fresh 同批次同逐步 lr）的状态成分隔离：
 #   Kv     : m 清零、v 与 t 保留      （fork --m_op zero --v_op keep）

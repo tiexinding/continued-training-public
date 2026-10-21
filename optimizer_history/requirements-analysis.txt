@@ -1,0 +1,10 @@
+# Dependencies of the default (tier-A) reproduction: python reproduce.py
+# Tested with Python 3.12, numpy 2.4, scipy 1.17, matplotlib 3.10, pandas 3.0, pyarrow, torch 2.x.
+# torch is needed to read released .pt records; a CPU build is enough. Training has further
+# dependencies (transformers, datasets, optionally trl); see train/README.md.
+numpy
+scipy
+matplotlib
+pandas
+pyarrow
+torch
