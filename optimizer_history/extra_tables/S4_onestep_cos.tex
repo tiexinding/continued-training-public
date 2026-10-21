@@ -1,0 +1,21 @@
+\begin{table}[tbp]
+\centering\small
+\caption{\textbf{Cosine between each variant's one-step update and the true-$v$ update} (median over layers;
+shuffled and permuted: mean of three seeds). Same computation as Table~\ref{tab:onestep}.}
+\label{tab:onestep_cos}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+& \multicolumn{3}{c}{MBPP start} & \multicolumn{3}{c}{GSM8K start} \\
+\cmidrule(lr){2-4}\cmidrule(l){5-7}
+$v$ variant & down & gate & up & down & gate & up \\
+\midrule
+row--column & 0.995 & 0.992 & 0.995 & 0.997 & 0.993 & 0.996 \\
+neuron-only & 0.984 & 0.945 & 0.935 & 0.985 & 0.946 & 0.928 \\
+hidden-only & 0.948 & 0.892 & 0.950 & 0.938 & 0.884 & 0.939 \\
+shuffled factors & 0.895 & 0.755 & 0.840 & 0.887 & 0.747 & 0.815 \\
+permuted $v$ & 0.892 & 0.752 & 0.838 & 0.884 & 0.744 & 0.813 \\
+constant $v$ & 0.935 & 0.850 & 0.901 & 0.927 & 0.838 & 0.879 \\
+$v=0$ & 0.696 & 0.637 & 0.705 & 0.671 & 0.606 & 0.685 \\
+\bottomrule
+\end{tabular}
+\end{table}

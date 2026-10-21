@@ -1,0 +1,33 @@
+\begin{table}[tbp]
+\centering\small
+\caption{\textbf{Equal-change null $R^2$ by matrix kind} (\MG{}, step 125, one data order, median over 24 layers; the
+vocabulary matrix is a single shared matrix). Rows marked $\ast$ lie on the intermediate-neuron axis.}
+\label{tab:r2kinds}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+measure & \cond{keep m,v,t} & \cond{keep v,t} & \cond{keep t} & \cond{reset all} & same task \\
+\midrule
+\multicolumn{6}{@{}l}{\textit{attention}}\\
+\quad query rows & 0.88 & 0.88 & 0.95 & 0.94 & 0.95 \\
+\quad query columns & 0.71 & 0.70 & 0.81 & 0.82 & 0.77 \\
+\quad key rows & 0.86 & 0.85 & 0.95 & 0.95 & 0.95 \\
+\quad key columns & 0.50 & 0.50 & 0.53 & 0.53 & 0.50 \\
+\quad value rows & 0.20 & 0.20 & 0.28 & 0.24 & 0.25 \\
+\quad value columns & 0.87 & 0.87 & 0.91 & 0.93 & 0.92 \\
+\quad output rows & 0.90 & 0.90 & 0.92 & 0.91 & 0.91 \\
+\quad output columns & 0.65 & 0.64 & 0.78 & 0.85 & 0.84 \\
+\addlinespace[4pt]
+\multicolumn{6}{@{}l}{\textit{feed-forward}}\\
+\quad gate rows$^\ast$ & 0.35 & 0.33 & 0.78 & 0.77 & 0.74 \\
+\quad gate columns & 0.42 & 0.41 & 0.76 & 0.81 & 0.75 \\
+\quad up rows$^\ast$ & 0.21 & 0.20 & 0.59 & 0.55 & 0.50 \\
+\quad up columns & 0.47 & 0.46 & 0.65 & 0.77 & 0.67 \\
+\quad down rows & 0.90 & 0.90 & 0.94 & 0.92 & 0.93 \\
+\quad down columns$^\ast$ & 0.17 & 0.16 & 0.64 & 0.70 & 0.62 \\
+\addlinespace[4pt]
+\multicolumn{6}{@{}l}{\textit{vocabulary (shared)}}\\
+\quad rows & $-$0.04 & $-$0.03 & $-$0.06 & $-$0.07 & $-$0.14 \\
+\quad columns & 0.18 & 0.18 & 0.16 & 0.17 & 0.19 \\
+\bottomrule
+\end{tabular}
+\end{table}

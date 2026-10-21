@@ -43,8 +43,8 @@ python -m plasticity_loss_sft.prepare_cpt_data --tokenizer_name Qwen/Qwen2.5-0.5
 
 Sources: `openai/gsm8k` (7,473 training problems), `google-research-datasets/mbpp` (974; 874 training items after
 the code's filtering), `databricks/databricks-dolly-15k` (closed QA, 1,773), `slinusc/PubMedAbstractsSubset` (the
-first 1,100 valid abstracts, reserved before the continued-pretraining stream). That repository has no license file,
-so neither its code nor the subsets it produced are redistributed here. `data/<task>/selected_ids.json` lists the IDs
+first 1,100 valid abstracts, reserved before the continued-pretraining stream). Neither that code nor the subsets
+it produces are redistributed here. `data/<task>/selected_ids.json` lists the IDs
 of the selected training and probe items, `data/<task>/stats.json` their token statistics, `data/manifest.json` the
 preparation record, and `data/prepared_sha256.json` the SHA-256 and size of each prepared `train.jsonl` and
 `probe.jsonl`, against which a rebuild can be checked.

@@ -12,6 +12,8 @@ TW = 6.8  # text width (in), figures are drawn at print size
 C = {"keep_mvt": ("#053061", "^"), "keep_vt": ("#2166AC", "o"), "keep_t": ("#92C5DE", "v"), "reset": ("#4D4D4D", "X"),
      "logrc": ("#5AAE61", "s"), "perm": ("#E08214", "D"), "same": ("#BABABA", "P"), "base": ("#000000", "*")}
 LBL = {"keep_mvt": "keep $m,v,t$", "keep_vt": "keep $v,t$", "keep_t": "keep $t$", "reset": "reset all", "logrc": "log-RC $v$, keep $t$", "perm": "permuted $v$, keep $t$", "same": "same task"}
+def tint(c, f):   # mix a colour with white; f = share of the colour
+    r = np.array(matplotlib.colors.to_rgb(c)); return tuple(1 - (1 - r) * f)
 def style(ax):
     ax.spines[["top", "right"]].set_visible(False); ax.tick_params(labelsize=7, length=2.5, width=.6); ax.grid(alpha=.22, lw=.5)
 def title(ax, s): ax.set_title(s, loc="left", pad=4)
@@ -44,11 +46,10 @@ ax = axs[1]; xs = []
 for i, c in enumerate(["reset", "keep_vt", "logrc", "perm"]):
     for k, s in enumerate(SEEDS):
         x = i + (k - 1) * .26; u = hcell("PG", c, s)["unind"]
-        ax.bar(x, u, .23, color=C[c][0] if k != 2 else "white", alpha=1, edgecolor=C[c][0], lw=(.6, .9, .9)[k], zorder=2)
-        if k == 1: ax.bar(x, u, .23, color="white", alpha=.55, lw=0, zorder=2.5)   # order 31: light tint of the condition colour
+        ax.bar(x, u, .23, color=(tint(C[c][0], .45), tint(C[c][0], .18), "white")[k], edgecolor=C[c][0], lw=.8, zorder=2)   # orders 17 / 31 / 47: light, lighter, open (10-21)
         ax.scatter([x], [ind_p(c, s)], s=14, marker=C[c][1], color="0.1", edgecolor="white", zorder=3, lw=.5)
 ax.set_xticks([0, 1, 2, 3]); ax.set_xticklabels(["reset\nall", "keep\n$v,t$", "log-RC\n$v$", "permuted\n$v$"], fontsize=6.8); ax.set_ylim(0, 1.05)
-ax.set_ylabel("Rate / probability"); ax.legend(handles=[Patch(fc="0.45", label="unindented, order 17"), Patch(fc="0.75", ec="0.45", lw=.9, label="order 31"), Patch(fc="white", ec="0.45", label="order 47"), Line2D([], [], color="0.1", marker="o", ls="", ms=3.5, label="first-token indent prob.")], frameon=False, loc="upper left", ncol=2, columnspacing=.5, handlelength=1.2)
+ax.set_ylabel("Rate / probability"); ax.legend(handles=[Patch(fc=tint("0.3", .45), ec="0.3", lw=.8, label="unindented, order 17"), Patch(fc=tint("0.3", .18), ec="0.3", lw=.8, label="order 31"), Patch(fc="white", ec="0.3", lw=.8, label="order 47"), Line2D([], [], color="0.1", marker="o", ls="", ms=3.5, label="first-token indent prob.")], frameon=False, loc="upper left", ncol=2, columnspacing=.5, handlelength=1.2)
 title(ax, "(b)  Output format, PubMed → GSM8K"); style(ax)
 save(fig, "fig5_functional_boundary.png")
 

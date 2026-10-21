@@ -20,7 +20,7 @@ a = ap.parse_args()
 
 # (step, script and arguments, outputs relative to the package root)
 STEPS = [
-    ("figure 8", ["FS/make_figs_paper_en.py"], ["FIG/fig6_format_mechanism.pdf"]),
+    ("figures 8, 9", ["FS/make_figs_paper_en.py"], ["FIG/fig6a_format_interventions.pdf", "FIG/fig6b_format_decomposition.pdf"]),
     ("figures 2, 3", ["FS/make_fig2_v13.py"], ["FIG/fig2_core_allocation.pdf", "FIG/fig3_allocation_dynamics.pdf"]),
     ("figures 4, 5", ["FS/make_fig34_v13.py"], ["FIG/fig3_one_step_counterfactual.pdf", "FIG/fig4_cross_condition.pdf"]),
     ("figure 7", ["FS/make_fig5_v13.py"], ["FIG/fig5_functional_boundary.pdf"]),
@@ -35,9 +35,10 @@ STEPS = [
     ("format randomness", ["FS/underspec_c3c4.py"], ["DATA/underspec/c3c4.json", "DATA/underspec/c3c4_tables.md"]),
     ("HumanEval table (Holm)", ["FS/table_humaneval_holm.py"], ["DATA/release/table_humaneval_holm.json", "DATA/release/tab_humaneval_rows.tex"]),
     ("derived numbers", ["FS/derived_numbers.py"], ["DATA/release/derived_numbers.json"]),
-    ("loss tables 4, 21", ["FS/table_losses.py"], ["DATA/release/table_losses.json"]),
+    ("loss tables 4, 15", ["FS/table_losses.py"], ["DATA/release/table_losses.json"]),
     ("probe-loss intervals", ["FS/regen/gen_nll_two_calibers_e.py"], ["DATA/e/nll_two_calibers_e.json"]),
     ("HumanEval pairs and format", ["FS/regen/gen_humaneval_pairs_e_rescore.py"], ["DATA/e/humaneval_pairs_e_rescore.json"]),
+    ("format flips (C.1)", ["FS/regen/gen_format_flip_means.py"], ["DATA/underspec/format_flip_means.json"]),
     ("t-reset format pairs", ["FS/regen/gen_unindent_paired_treset.py"], ["DATA/g/unindent_paired_treset.json"]),
     ("local restoration pairs", ["FS/regen/gen_intervene_v3_paired.py"], ["DATA/d/intervene_v3_paired.json"]),
 ]

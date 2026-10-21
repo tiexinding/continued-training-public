@@ -39,12 +39,12 @@ python FS/chan_agree_k.py --fields mvt=diag25/c3/pairs_K_mvt_rec/A_B_fields.npz 
 | `scripts/neuron_act.py` | start weights, probes, `A_B_fields.npz` | `DATA/b4/neuron_act_M.{npz,json}`, `DATA/h/final/diag25/h/neuron_act_*_hall.json`, `DATA/{d,e}/diag25/b4/neuron_act_A_g_*.json`, `DATA/f/diag25/b4/neuron_act_B_g_*.json` | activations $A_j$ (Section 3.3), selectivity, overlap, ρ |
 | `scripts/cross_order_channels.py` | 36 `A_B_fields.npz` (card only) | `DATA/i/diag25/i/cross_order_channels.json`, `DATA/j/diag25/j/cross_order_channels_j.json` | cross-order channel agreement |
 | `scripts/h2p_energy.py` | `runs_h/*/records/upd_energy.pt` (card only) | `DATA/h/diag25/h/h2p_energy.json`, `DATA/i/diag25/i/h2p_energy_segments.json` | per-step energy (Appendix B) |
-| `scripts/adam_offline_v3.py` (executes `adam_offline_v2.py`, both required) | starting states, subsets | `DATA/e/diag25/e1/adam_offline_v3_{M,Ag}.json` | one-step shares (Fig. 5, Tables 14, 16) |
-| `scripts/vfactor_test.py` | starting states, activations | `DATA/k/vfactor_{M,Ag}.json` | factor association and energy formula (Tables 2, 3, 15) |
-| `scripts/connect_audit.py` (+ `compare_legacy.py`) | MBPP start, activations, probes | `DATA/k/k_M.json`, `DATA/k/diag25/k/{trial_M_f32,trial_M_f64,legacy_check}.json`, `DATA/k/logs/k_smoke.log` | fixed-state output audit (Fig. 6, Table 17, Appendix A) |
-| `scripts/calib_check.py` | starting states, `records/match_c.pt` | `DATA/i/diag25/i/calib/*.json` | calibration (Tables 12, 13), log v fits |
+| `scripts/adam_offline_v3.py` (executes `adam_offline_v2.py`, both required) | starting states, subsets | `DATA/e/diag25/e1/adam_offline_v3_{M,Ag}.json` | one-step shares and cosines (Fig. 5, Tables S3, S4) |
+| `scripts/vfactor_test.py` | starting states, activations | `DATA/k/vfactor_{M,Ag}.json` | factor association and energy formula (Tables 2, 3, S5) |
+| `scripts/connect_audit.py` (+ `compare_legacy.py`) | MBPP start, activations, probes | `DATA/k/k_M.json`, `DATA/k/diag25/k/{trial_M_f32,trial_M_f64,legacy_check}.json`, `DATA/k/logs/k_smoke.log` | fixed-state output audit (Fig. 6, Table 12, Appendix A) |
+| `scripts/calib_check.py` | starting states, `records/match_c.pt` | `DATA/i/diag25/i/calib/*.json` | calibration (Tables 11, S2), log v fits |
 | `scripts/drift_diag.py` (`--stage groups/energy/logits/offline/interv/localize/heval`) | endpoint and start weights | `DATA/f/diag25/f1/*.json`, `DATA/i/diag25/f1/intervene_energy.json`, `DATA/h/diag25/f1/heval_h_*.json` | HumanEval generations and format (Figs. 7, 8) |
-| `scripts/mech_diag.py` (`--stage decomp/untie/onestep`) | endpoint and intermediate weights | `DATA/g/diag25/g1/{decomp,untie,onestep}.json`, `DATA/g/diag25/g2/*/decomp.json` | format mechanism (Fig. 8, Appendix C) |
+| `scripts/mech_diag.py` (`--stage decomp/untie/onestep`) | endpoint and intermediate weights | `DATA/g/diag25/g1/{decomp,untie,onestep}.json`, `DATA/g/diag25/g2/*/decomp.json` | format mechanism (Figs. 8, 9, Appendix C) |
 | `scripts/humaneval_eval.py`, `humaneval_diag.py` | endpoint weights | `DATA/e/diag25/e4/humaneval_e.json`, `DATA/e/diag25/e7/humaneval_diag.json` | HumanEval passes, prompt rewrites |
 | `scripts/humaneval_rescore.py` (local; executes the generated programs) | saved generations | `DATA/e/humaneval_*_rescore.json` | raw assembly vs indent repair |
 | `scripts/gen_audit.py` | endpoint weights | `DATA/**/*_max400.jsonl`, `*_mbpp.json` | GSM8K / MBPP generation checks |
@@ -65,22 +65,22 @@ opens).
 | Fig. 5 [fig:onestep] | `FS/make_fig34_v13.py` | `e/diag25/e1/adam_offline_v3_{M,Ag}.json` (`matched`, median) |
 | Fig. 6 [fig:preserve] | `FS/make_fig_preserve_v13.py` | `k/summary_k_M.json` |
 | Fig. 7 [fig:boundary] | `FS/make_fig5_v13.py` | `e/humaneval_{e,d}_rescore.json`, `e/humaneval_pairs_e_rescore.json`, `e/nll_two_calibers_e.json`, `f/diag25/f1/{first_pos_probs,heval_f7,heval_f14}.json`, `h/diag25/f1/heval_h_PG_*.json`, `h/final/h_analysis/out/summary_h.json` |
-| Fig. 8 [fig:format] | `FS/make_figs_paper_en.py` | `f/diag25/f1/intervene_drift.json`, `i/diag25/f1/intervene_energy.json`, `g/diag25/g1/{decomp,untie}.json`, `g/diag25/g2/*/decomp.json`; training logs of `runs_b2/Kv`, `t2`, `t3`, `e/runs_e/P_*` |
+| Figs. 8, 9 [fig:format, fig:hrdecomp] | `FS/make_figs_paper_en.py` | `f/diag25/f1/intervene_drift.json`, `i/diag25/f1/intervene_energy.json`, `g/diag25/g1/{decomp,untie}.json`, `g/diag25/g2/*/decomp.json`; training logs of `runs_b2/Kv`, `t2`, `t3`, `e/runs_e/P_*` |
 | Table 1 [tab:conditions], Tables 5a, 5b, 6 [tab:setup, tab:tasks, tab:streams] | — | `train/run_configs/setup_records.json`; log v fits in `i/diag25/i/calib/MG_vfac_med.json` |
 | Table 2 [tab:factor] | (card: `vfactor_test.py`) | `k/vfactor_{M,Ag}.json` |
-| Tables 3, 15 [tab:formula, tab:formulanew] | (card: `vfactor_test.py`) | `k/vfactor_{M,Ag}.json` (ranking: Spearman of 4-batch mean energies; shares: per-batch normalized, then averaged) |
-| Table 4 [tab:losses], Table 21 [tab:heldout] | `FS/table_losses.py` | `h/summary_h.json`; starting-checkpoint segnll `diag25/b1/segnll/M.json`, `d/diag25/d4/segnll/A_g.json`, `e/diag25/e4/segnll/B_g.json` → `release/table_losses.json` |
+| Tables 3, S5 [tab:formula, tab:formulanew] | (card: `vfactor_test.py`) | `k/vfactor_{M,Ag}.json` (ranking: Spearman of 4-batch mean energies; shares: per-batch normalized, then averaged) |
+| Table 4 [tab:losses], Table 15 [tab:heldout] | `FS/table_losses.py` | `h/summary_h.json`; starting-checkpoint segnll `diag25/b1/segnll/M.json`, `d/diag25/d4/segnll/A_g.json`, `e/diag25/e4/segnll/B_g.json` → `release/table_losses.json` |
 | Table 7 [tab:measures] | — | summary of the read-outs in this table |
-| Table 8 [tab:replication], Table 19 [tab:format] | `FS/analyze_h.py` | `h/summary_h.json`, `h/tables_h.md` |
+| Table 8 [tab:replication], Table 13 [tab:format] | `FS/analyze_h.py` | `h/summary_h.json`, `h/tables_h.md` |
 | Table 9 [tab:rankstab] | (card: `cross_order_channels.py`) | `i/diag25/i/cross_order_channels.json` |
-| Table 10 [tab:r2kinds] | `FS/regen/gen_structure_by_kind_six_arms.py` | `b2/structure_by_kind_six_arms.json` (from six `A_B.json`) |
-| Table 11 [tab:gateup] | `FS/gen_component_gateup.py` (*tier B*) | `b4/component_gateup.json` |
-| Tables 12, 13 [tab:calib, tab:applied] | `FS/analyze_i2.py` | `i/diag25/i/calib/*.json`, `i/diag25/i/i2_summary.json` |
-| Tables 14, 16 [tab:onestep, tab:onestep_cos] | `FS/analyze_e.py` | `e/summary_e.json`; up columns and both starts from `e/diag25/e1/adam_offline_v3_{M,Ag}.json` |
-| Table 17 [tab:kround] | `FS/analyze_k.py` | `k/k_M.json` → `k/summary_k_M.{json,md}` |
-| Table 18 [tab:predictors] | `FS/predictors_mg.py` (MG, *tier B*), `FS/regen/gen_predictor_baselines_dir2.py` (GM, *tier B*) | `release/predictors_MG.json` (incl. MG new-task activation 0.28), `b4/early_checkpoint_W4_4.json`, `d/predictor_baselines_dir2.json` |
-| Table 20 [tab:humaneval] | `FS/table_humaneval_holm.py` | `e/diag25/e4/humaneval_e.json`, `e/humaneval_e_rescore.json`, `h/diag25/f1/heval_h_PG_*_s{31,47}.json` → `release/tab_humaneval_rows.tex` |
-| Table 22 [tab:probeloss] | `FS/regen/gen_nll_two_calibers_e.py` | `e/nll_two_calibers_e.json` |
+| Table S1 [tab:r2kinds] | `FS/regen/gen_structure_by_kind_six_arms.py` | `b2/structure_by_kind_six_arms.json` (from six `A_B.json`) |
+| Table 10 [tab:gateup] | `FS/gen_component_gateup.py` (*tier B*) | `b4/component_gateup.json` |
+| Tables S2, 11 [tab:calib, tab:applied] | `FS/analyze_i2.py` | `i/diag25/i/calib/*.json`, `i/diag25/i/i2_summary.json` |
+| Tables S3, S4 [tab:onestep, tab:onestep_cos] | `FS/analyze_e.py` | `e/summary_e.json`; up columns and both starts from `e/diag25/e1/adam_offline_v3_{M,Ag}.json` |
+| Table 12 [tab:kround] | `FS/analyze_k.py` | `k/k_M.json` → `k/summary_k_M.{json,md}` |
+| Table S6 [tab:predictors] | `FS/predictors_mg.py` (MG, *tier B*), `FS/regen/gen_predictor_baselines_dir2.py` (GM, *tier B*) | `release/predictors_MG.json` (incl. MG new-task activation 0.28), `b4/early_checkpoint_W4_4.json`, `d/predictor_baselines_dir2.json` |
+| Table 14 [tab:humaneval] | `FS/table_humaneval_holm.py` | `e/diag25/e4/humaneval_e.json`, `e/humaneval_e_rescore.json`, `h/diag25/f1/heval_h_PG_*_s{31,47}.json` → `release/tab_humaneval_rows.tex` |
+| Table S7 [tab:probeloss] | `FS/regen/gen_nll_two_calibers_e.py` | `e/nll_two_calibers_e.json` |
 
 Numbers quoted in the text:
 
@@ -95,9 +95,10 @@ Numbers quoted in the text:
 | Appendix B local restoration 1.3–1.6× | `FS/regen/gen_intervene_v3_paired.py` | `d/intervene_v3_paired.json` |
 | Appendix C replay 9.8% / 5.6% | `FS/regen/gen_replay_budget_audit.py` (needs the subsets and tokenizer) | `e/replay_budget_audit.json` |
 | Appendix C t reset 13/14/15%, paired differences | `FS/regen/gen_unindent_paired_treset.py` | `g/unindent_paired_treset.json` |
+| Appendix C condition vs order format flips (1–14% vs 8–26%, means 13 and 30) | `FS/regen/gen_format_flip_means.py` | `underspec/format_flip_means.json` |
 | Appendix C format randomness, Multi-Bootstrap | `FS/underspec_c3c4.py` | `underspec/c3c4.json`, `underspec/c3c4_tables.md` |
 | Appendix C order interventions | `FS/analyze_j.py`, `FS/tail_batch.py` (needs the GSM8K train parquet and tokenizer) | `underspec/j_verdict.json`, `underspec/tail_batch.json` |
-| Appendix C 1 indentation token in 124,821 | `FS/count_indent_targets.py` (needs the subsets and tokenizer) | `r07/indent_in_gsm8k_targets.json` |
+| Indentation tokens in GSM8K targets (1 in 124,821; not quoted in the current paper) | `FS/count_indent_targets.py` (needs the subsets and tokenizer) | `r07/indent_in_gsm8k_targets.json` |
 | Appendix A deterministic reruns | — | `i/status/verify_i.tsv`, `*/endpoint_sha16.txt` |
 
 ## 4 Release tiers

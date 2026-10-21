@@ -1,0 +1,25 @@
+\begin{table}[tb]
+\centering\small
+\caption{\textbf{Residual mismatch of the calibration proxy} on eight independent new-task batches (order 17).
+Ratios of frozen-history proxy updates (replacement over true $v$), not of applied AdamW steps. Body: median, with
+range or 90th percentile and maximum, over the 168 attention and feed-forward matrices; vocabulary: the shared
+vocabulary matrix.}
+\label{tab:calib}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+ & \multicolumn{2}{c}{ratio of medians} & \multicolumn{4}{c}{ratio of RMS} \\
+\cmidrule(lr){2-3}\cmidrule(l){4-7}
+condition & body [range] & vocab. & body & body p90 & body max & vocab. \\
+\midrule
+\GM{} \cond{log-RC v}, rms & 1.01 [0.70, 1.03] & 0.62 & 1.00 & 1.0 & 1.2 & 0.72 \\
+\GM{} \cond{permuted v}, rms & 0.30 [0.00, 0.95] & 0.88 & 1.00 & 1.5 & 5.1 & 2.19 \\
+\GM{} \cond{log-RC v}, median & 1.00 [0.99, 1.01] & 0.66 & 0.99 & 1.0 & 1.6 & 0.78 \\
+\GM{} \cond{permuted v}, median & 1.00 [0.98, 1.06] & 1.03 & 3.33 & 19.9 & 947 & 2.32 \\
+\MG{} \cond{log-RC v}, median & 1.00 [0.99, 1.00] & 0.68 & 0.99 & 1.0 & 1.1 & 1.49 \\
+\MG{} \cond{permuted v}, median & 1.00 [0.98, 1.02] & 1.01 & 3.42 & 19.4 & 1184 & 6.58 \\
+\PG{} \cond{log-RC v}, median & 1.00 [0.99, 1.00] & 0.78 & 0.99 & 1.0 & 1.6 & 1.50 \\
+\PG{} \cond{permuted v}, median & 1.00 [0.98, 1.02] & 1.09 & 3.10 & 17.7 & 884 & 12.19 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,26 @@
+\begin{table}[!htb]
+\centering\small
+\caption{\textbf{Paired probe-loss differences} (order 17; nats; 95\% bootstrap intervals over problems, which do not
+cover training randomness). Calibration of the replacement in parentheses; ``old'' and ``new'' give the task of the
+probe.}
+\label{tab:probeloss}
+\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}l r@{\hspace{3pt}}l r@{\hspace{3pt}}l@{}}
+\toprule
+contrast (probe task) & \multicolumn{2}{c}{per item [95\% interval]} & \multicolumn{2}{c}{per token [95\% interval]} \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{\GM{}}}\\
+\quad\cond{log-RC v} (RMS) $-$ \cond{keep v,t} (old) & $+0.0046$ & {\footnotesize[$+0.0040$, $+0.0052$]} & $+0.0040$ & {\footnotesize[$+0.0035$, $+0.0045$]} \\
+\quad\cond{permuted v} (RMS) $-$ \cond{keep v,t} (old) & $-0.0101$ & {\footnotesize[$-0.0127$, $-0.0076$]} & $-0.0088$ & {\footnotesize[$-0.0109$, $-0.0067$]} \\
+\quad\cond{permuted v} (median) $-$ \cond{keep v,t} (old) & $+0.0389$ & {\footnotesize[$+0.0351$, $+0.0429$]} & $+0.0340$ & {\footnotesize[$+0.0306$, $+0.0379$]} \\
+\addlinespace[3pt]
+\multicolumn{5}{@{}l}{\textit{\PG{}}}\\
+\quad\cond{log-RC v} (median) $-$ \cond{keep v,t} (new) & $-0.0028$ & {\footnotesize[$-0.0060$, $-0.0005$]} & $-0.0034$ & {\footnotesize[$-0.0071$, $-0.0007$]} \\
+\quad\cond{reset all} $-$ \cond{keep v,t} (new) & $-0.0059$ & {\footnotesize[$-0.0096$, $-0.0028$]} & $-0.0067$ & {\footnotesize[$-0.0114$, $-0.0031$]} \\
+\addlinespace[3pt]
+\multicolumn{5}{@{}l}{\textit{\MG{}, replay}}\\
+\quad replay $-$ no replay, \cond{keep v,t} (old) & $-0.0172$ & {\footnotesize[$-0.0299$, $-0.0038$]} & $-0.0064$ & {\footnotesize[$-0.0173$, $+0.0047$]} \\
+\quad with replay: \cond{keep v,t} $-$ \cond{reset all} (old) & $-0.0058$ & {\footnotesize[$-0.0085$, $-0.0030$]} & $-0.0069$ & {\footnotesize[$-0.0091$, $-0.0049$]} \\
+\bottomrule
+\end{tabular}
+\end{table}

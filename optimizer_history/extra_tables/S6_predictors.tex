@@ -1,0 +1,21 @@
+\begin{table}[!htb]
+\centering\small
+\caption{\textbf{Hit rate of switch-time and early-training rankings on the top-5\% down columns} of \cond{keep v,t}
+(chance 0.05; median over layers; order 17). Target: the change at step 125 on \MG{} and at step 100 of 108 on \GM{}
+(the last recorded per-neuron change). The first row is the selectivity that defines new-task neurons, shown as a
+reference; on \MG{} it is the order-17 overlap of Section~\ref{sec:allocation}, on \GM{} it exceeds the final overlap by 0.004. ``Step-10 update'': change accumulated over the first ten steps, an early-training rather than a
+switch-time quantity.}
+\label{tab:predictors}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+ranking & \MG & \GM \\
+\midrule
+selectivity (reference) & 0.53 & 0.66 \\
+new-task activation & 0.28 & 0.42 \\
+$g^2/v$ at the first step & -- & 0.40 \\
+step-10 update & 0.30 & 0.41 \\
+inverse old-task activation & 0.12 & 0.10 \\
+$1/v$ & -- & 0.09 \\
+\bottomrule
+\end{tabular}
+\end{table}

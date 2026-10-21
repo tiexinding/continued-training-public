@@ -1,0 +1,35 @@
+{
+ "n_problems": 164,
+ "condition_flips": {
+  "17:vt-vfac": 12,
+  "17:vt-vperm": 22,
+  "17:vfac-vperm": 10,
+  "31:vt-vfac": 3,
+  "31:vt-vperm": 20,
+  "31:vfac-vperm": 23,
+  "47:vt-vfac": 2,
+  "47:vt-vperm": 12,
+  "47:vfac-vperm": 12
+ },
+ "order_flips": {
+  "vt:17-31": 17,
+  "vt:17-47": 28,
+  "vt:31-47": 37,
+  "vfac:17-31": 16,
+  "vfac:17-47": 38,
+  "vfac:31-47": 40,
+  "vperm:17-31": 13,
+  "vperm:17-47": 40,
+  "vperm:31-47": 43
+ },
+ "condition_range_pct": [
+  1.2195121951219512,
+  14.024390243902438
+ ],
+ "condition_mean": 12.88888888888889,
+ "order_range_pct": [
+  7.926829268292683,
+  26.21951219512195
+ ],
+ "order_mean": 30.22222222222222
+}
